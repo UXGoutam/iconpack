@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import CopySnippet from "@/components/CopySnippet";
 
 /* ── Inline SVG previews ── */
@@ -320,7 +321,7 @@ export default function StyleGuideClient() {
       {/* Page header */}
       <div className="mb-10 pb-8 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 mb-3 uppercase tracking-wider font-medium">
-          <a href="/" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Icons</a>
+          <Link href="/" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Icons</Link>
           <span>/</span>
           <span className="text-gray-700 dark:text-gray-300">CSS Style Guide</span>
         </div>

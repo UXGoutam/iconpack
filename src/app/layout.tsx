@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   title: "Vantage Icon",
@@ -17,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
 
               {/* Logo — CSS mask renders vc-logo.png in brand colour #29294C on any bg */}
-              <a href="/" className="flex items-center gap-3 shrink-0">
+              <Link href="/" className="flex items-center gap-3 shrink-0">
                 <span
                   aria-label="Vantage Circle"
                   style={{
@@ -25,8 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     height: "28px",
                     width: "192px",
                     backgroundColor: "#29294C",
-                    WebkitMaskImage: "url(/vc-logo.png)",
-                    maskImage: "url(/vc-logo.png)",
+                    WebkitMaskImage: `url(${basePath}/vc-logo.png)`,
+                    maskImage: `url(${basePath}/vc-logo.png)`,
                     WebkitMaskSize: "contain",
                     maskSize: "contain",
                     WebkitMaskRepeat: "no-repeat",
@@ -40,17 +43,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-500">
                   Icons
                 </span>
-              </a>
+              </Link>
 
               {/* Right side: nav + toggle + count */}
               <div className="flex items-center gap-4">
                 <nav className="hidden sm:flex items-center gap-1">
-                  <a href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium">
+                  <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium">
                     Icons
-                  </a>
-                  <a href="/style-guide" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium">
+                  </Link>
+                  <Link href="/style-guide" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium">
                     Style Guide
-                  </a>
+                  </Link>
                 </nav>
                 <div className="w-px h-5 bg-gray-200 dark:bg-gray-700 hidden sm:block" />
                 <ThemeToggle />
